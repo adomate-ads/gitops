@@ -4,6 +4,6 @@ images:
     - name: raajpatel229/adomate-frontend
       newTag: latest
 resources:
-    - deployment.yaml
+  - deployment.yaml
   - ingress.yaml
   - service.yaml
