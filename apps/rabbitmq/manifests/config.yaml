@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: rabbitmq-config
+    namespace: rabbitmq
+data:
+    rabbitmq.conf: |-
+        ## RabbitMQ Configuration
+        ## See https://www.rabbitmq.com/configure.html for more information
+        ## Configure the RabbitMQ server to allow guest login over the network
+        loopback_users.guest = false
+        ## Enable the RabbitMQ management plugin
+        management.load_definitions = /etc/rabbitmq/definitions.json
+        management.enabled = true
+        ## Set the RabbitMQ cluster name
+        cluster_name = rabbit@$(hostname -f)
