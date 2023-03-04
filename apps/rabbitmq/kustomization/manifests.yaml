@@ -95,7 +95,7 @@ spec:
       volumes:
       - name: rabbitmq-data
         persistentVolumeClaim:
-          claimName: rabbitmq-pvc
+          claimName: rabbitmq-pv-claim
       - configMap:
           name: rabbitmq-config
         name: rabbitmq-config
