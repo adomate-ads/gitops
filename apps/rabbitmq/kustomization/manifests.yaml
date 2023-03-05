@@ -136,7 +136,7 @@ spec:
       paths:
       - backend:
           service:
-            name: rabbitmq-management
+            name: rabbitmq
             port:
               number: 15672
         path: /
