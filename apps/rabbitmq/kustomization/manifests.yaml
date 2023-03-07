@@ -1,0 +1,120 @@
+apiVersion: v1
+data:
+  rabbitmq.conf: |-
+    log.file.level = debug
+    log.console = true
+    log.console.level = debug
+kind: ConfigMap
+metadata:
+  name: rabbitmq-config
+  namespace: rabbitmq
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+  namespace: rabbitmq
+spec:
+  ports:
+  - name: amqp
+    port: 5672
+    targetPort: 5672
+  - name: management
+    port: 15672
+    targetPort: 15672
+  selector:
+    app: rabbitmq
+  type: ClusterIP
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: rabbitmq-pv-volume
+  namespace: rabbitmq
+spec:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 3Gi
+  hostPath:
+    path: /mnt/data/rabbitmq
+  storageClassName: manual
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: rabbitmq-pv-claim
+  namespace: rabbitmq
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmq
+  namespace: rabbitmq
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rabbitmq
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+    spec:
+      containers:
+      - image: rabbitmq:3.11-management-alpine
+        name: rabbitmq
+        ports:
+        - containerPort: 5672
+        - containerPort: 15672
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+        volumeMounts:
+        - mountPath: /var/lib/rabbitmq
+          name: rabbitmq-data
+        - mountPath: /etc/rabbitmq/rabbitmq.conf
+          name: rabbitmq-config
+          subPath: rabbitmq.conf
+      volumes:
+      - name: rabbitmq-data
+        persistentVolumeClaim:
+          claimName: rabbitmq-pv-claim
+      - configMap:
+          name: rabbitmq-config
+        name: rabbitmq-config
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+  name: rabbitmq-ingress
+  namespace: rabbitmq
+spec:
+  rules:
+  - host: rabbitmq.adomate.ai
+    http:
+      paths:
+      - backend:
+          service:
+            name: rabbitmq
+            port:
+              number: 15672
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - rabbitmq.adomate.ai
+    secretName: frontend-tls

@@ -26,11 +26,18 @@ spec:
         run: adomate
     spec:
       containers:
-      - image: raajpatel229/adomate-frontend:608cd3466885a88bd11d8b0eb489a4317f7c1964
+      - image: raajpatel229/adomate-frontend:9aa0803ce4b3a30b63f5873e975f95707ec474ab
         imagePullPolicy: Always
         name: adomate
         ports:
         - containerPort: 80
+        resources:
+          limits:
+            cpu: 100m
+            memory: 512Mi
+          requests:
+            cpu: 50m
+            memory: 256Mi
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
