@@ -4,7 +4,22 @@ metadata:
     name: rabbitmq-config
     namespace: rabbitmq
 data:
-    rabbitmq.conf: |-
-          log.file.level = debug
-          log.console = true
-          log.console.level = debug
+    rabbitmq.conf: |
+      cluster_name = rabbit@$(hostname -s)
+      # set cookie value to be the same across all nodes in the cluster
+      cluster_cookie = mycookie
+      # enable RabbitMQ Management plugin
+      # management plugin is optional but recommended
+      rabbitmq_management.load_definitions = /etc/rabbitmq/definitions.json
+    definitions.json: |
+      {
+        "users": [
+          {"name": "guest", "password": "guest", "tags": "administrator"}
+        ],
+        "vhosts": [
+          {"name": "/"}
+        ],
+        "permissions": [
+          {"user": "guest", "vhost": "/", "configure": ".*", "write": ".*", "read": ".*"}
+        ]
+      }
