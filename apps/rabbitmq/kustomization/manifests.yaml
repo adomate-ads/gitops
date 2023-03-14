@@ -83,7 +83,12 @@ spec:
         app: rabbitmq
     spec:
       containers:
-      - image: rabbitmq:3.11-management-alpine
+      - env:
+        - name: RABBITMQ_CONFIG_FILE
+          value: /etc/rabbitmq/rabbitmq.conf
+        - name: RABBITMQ_ERLANG_COOKIE
+          value: mycookie
+        image: rabbitmq:3.11-management-alpine
         name: rabbitmq
         ports:
         - containerPort: 5672
