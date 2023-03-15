@@ -4,6 +4,7 @@ metadata:
     name: adomate
 spec:
     replicas: 2
+    revisionHistoryLimit: 2
     selector:
         matchLabels:
             run: adomate
