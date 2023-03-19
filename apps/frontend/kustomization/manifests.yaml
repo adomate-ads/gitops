@@ -27,7 +27,7 @@ spec:
         run: adomate
     spec:
       containers:
-      - image: raajpatel229/adomate-frontend:20cbd7dbded805743676328dd0647f171d33f1d6
+      - image: raajpatel229/adomate-frontend:500eca03d477149ded823640755b03693c555e11
         imagePullPolicy: Always
         name: adomate
         ports:
