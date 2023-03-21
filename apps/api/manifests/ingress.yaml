@@ -19,6 +19,6 @@ spec:
                     path: "/"
                     backend:
                         service:
-                            name: adomate-api
+                            name: api
                             port:
                                 number: 3000
