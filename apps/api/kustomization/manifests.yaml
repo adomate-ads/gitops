@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: api
+  name: adomate-api
+spec:
+  ports:
+  - port: 3000
+    targetPort: 3000
+  selector:
+    app: api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        run: api
+    spec:
+      containers:
+      - image: adomate/api:latest
+        imagePullPolicy: Always
+        name: api
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 512Mi
+          requests:
+            cpu: 200m
+            memory: 50Mi
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
+  name: api-ingress
+  namespace: api
+spec:
+  rules:
+  - host: api.adomate.ai
+    http:
+      paths:
+      - backend:
+          service:
+            name: adomate-api
+            port:
+              number: 3000
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - api.adomate.ai
+    secretName: frontend-tls
