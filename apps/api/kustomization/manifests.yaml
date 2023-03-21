@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: api
-  name: adomate-api
+  name: api
 spec:
   ports:
   - port: 3000
@@ -17,6 +17,7 @@ metadata:
   name: api
 spec:
   replicas: 2
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: api
