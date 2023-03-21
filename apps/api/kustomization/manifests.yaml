@@ -26,7 +26,7 @@ spec:
         run: api
     spec:
       containers:
-      - image: adomate/api:latest
+      - image: adomate/api:5ffa911d02df820bf738bdae96d33d918bc0408e
         imagePullPolicy: Always
         name: api
         ports:
