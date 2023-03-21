@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
 - name: raajpatel229/adomate-frontend
-  newTag: 94b5dda41bbea9e764f90097636b047c8cb4c2e6
+  newTag: 3a84a2e7f723a74a45761168ccedf3a68567651f
 resources:
 - deployment.yaml
 - ingress.yaml
