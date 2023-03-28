@@ -6,8 +6,8 @@ metadata:
   name: discord-bot
 spec:
   ports:
-  - port: 8000
-    targetPort: 8000
+  - port: 3000
+    targetPort: 3000
   selector:
     app: discord-bot
 ---
@@ -27,42 +27,17 @@ spec:
         run: discord-bot
     spec:
       containers:
-      - image: adomate/discord-bot:5ffa911d02df820bf738bdae96d33d918bc0408e
+      - image: adomate/discord-bot:d70956388acb9e9219695cd746c44929c4f44619
         imagePullPolicy: Always
-        name: discord-bot
+        name: api
         ports:
         - containerPort: 3000
         resources:
           limits:
-            cpu: 1000m
-            memory: 512Mi
+            cpu: 150m
+            memory: 256Mi
           requests:
-            cpu: 200m
+            cpu: 50m
             memory: 50Mi
       imagePullSecrets:
       - name: dockerhub-credentials
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    kubernetes.io/ingress.class: nginx
-  name: api-ingress
-  namespace: api
-spec:
-  rules:
-  - host: api.adomate.ai
-    http:
-      paths:
-      - backend:
-          service:
-            name: api
-            port:
-              number: 3000
-        path: /
-        pathType: Prefix
-  tls:
-  - hosts:
-    - api.adomate.ai
-    secretName: frontend-tls
