@@ -1,7 +1,7 @@
 apiVersion: v1
 data:
   MYSQL_DATABASE: adomate_prod
-  MYSQL_ROOT_PASSWORD: adomate.ai
+  MYSQL_ROOT_PASSWORD: adomate
 kind: ConfigMap
 metadata:
   name: mysql-config
