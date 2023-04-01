@@ -26,5 +26,8 @@ spec:
                       limits:
                           cpu: 150m #150 millicpu AKA 0.15vCPU
                           memory: 256Mi
+                  envFrom:
+                  - secretRef:
+                      name: discord-secrets
             imagePullSecrets:
             - name: dockerhub-credentials
