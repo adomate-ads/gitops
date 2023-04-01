@@ -1,0 +1,1 @@
+```kustomize build ./manifests/ > ./kustomization/manifests.yaml```
