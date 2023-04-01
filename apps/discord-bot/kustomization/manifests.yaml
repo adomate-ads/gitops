@@ -27,7 +27,7 @@ spec:
         run: discord-bot
     spec:
       containers:
-      - image: adomate/discord-bot:d70956388acb9e9219695cd746c44929c4f44619
+      - image: adomate/discord-bot:9b85e3e9303c2f0b0bd90e0384a4cbd3fc62c1ee
         imagePullPolicy: Always
         name: api
         ports:
