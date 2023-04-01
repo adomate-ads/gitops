@@ -56,6 +56,7 @@ metadata:
   namespace: mysql
 spec:
   replicas: 2
+  revisionHistoryLimit: 2
   selector:
     matchLabels:
       app: mysql
