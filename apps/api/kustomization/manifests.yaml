@@ -15,6 +15,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api
+  namespace: api
 spec:
   replicas: 2
   revisionHistoryLimit: 2
@@ -27,7 +28,10 @@ spec:
         run: api
     spec:
       containers:
-      - image: adomate/api:5726e834e4551b54e14bab68175ba89371c2a0f9
+      - envFrom:
+        - secretRef:
+            name: api-secrets
+        image: adomate/api:5726e834e4551b54e14bab68175ba89371c2a0f9
         imagePullPolicy: Always
         name: api
         ports:
