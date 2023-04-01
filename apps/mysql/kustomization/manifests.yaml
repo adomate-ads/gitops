@@ -75,7 +75,7 @@ spec:
             name: mysql-config
         image: mysql:8
         livenessProbe:
-          initialDelaySeconds: 15
+          initialDelaySeconds: 30
           periodSeconds: 10
           tcpSocket:
             port: 3306
@@ -83,7 +83,7 @@ spec:
         ports:
         - containerPort: 3306
         readinessProbe:
-          initialDelaySeconds: 5
+          initialDelaySeconds: 30
           periodSeconds: 10
           tcpSocket:
             port: 3306
