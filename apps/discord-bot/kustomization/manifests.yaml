@@ -28,10 +28,15 @@ spec:
         run: discord-bot
     spec:
       containers:
-      - envFrom:
+      - env:
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        envFrom:
         - secretRef:
             name: discord-secrets
-        image: adomate/discord-bot:fc6010e9cd7e4304f02094461ddc90441b72a490
+        image: adomate/discord-bot:55244dd4c02ef374ba8bbde8ef22b72d9d7efba4
         imagePullPolicy: Always
         name: api
         ports:
