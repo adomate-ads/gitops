@@ -17,7 +17,7 @@ metadata:
   name: discord-bot
   namespace: discord-bot
 spec:
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -28,15 +28,10 @@ spec:
         run: discord-bot
     spec:
       containers:
-      - env:
-        - name: POD_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.name
-        envFrom:
+      - envFrom:
         - secretRef:
             name: discord-secrets
-        image: adomate/discord-bot:55244dd4c02ef374ba8bbde8ef22b72d9d7efba4
+        image: adomate/discord-bot:f150e73d87ce2f4a521c204093da8df765c04ffc
         imagePullPolicy: Always
         name: api
         ports:
