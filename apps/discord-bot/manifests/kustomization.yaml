@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
 - name: adomate/discord-bot
-  newTag: 6cdeba4e2b3c1daa3defd69f77d29ed6ceded509
+  newTag: 6a3f970285440b770859a6bb13f2a01786037faa
 resources:
 - deployment.yaml
 - service.yaml
