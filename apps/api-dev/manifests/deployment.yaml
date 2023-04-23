@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: api-dev
+    namespace: api-dev
+spec:
+    replicas: 1
+    revisionHistoryLimit: 1
+    selector:
+        matchLabels:
+            run: api-dev
+    template:
+        metadata:
+            labels:
+                run: api-dev
+        spec:
+            containers:
+                - name: api-dev
+                  image: adomate/api:latest
+                  ports:
+                      - containerPort: 3000
+                  imagePullPolicy: Always
+                  resources:
+                      requests:
+                          cpu: 200m #200 millicpu AKA 0.2vCPU
+                          memory: 50Mi
+                      limits:
+                          cpu: 1000m #1000 millicpu AKA 1vCPU
+                          memory: 512Mi
+                  envFrom:
+                  - secretRef:
+                      name: api-secrets
+            imagePullSecrets:
+            - name: dockerhub-credentials

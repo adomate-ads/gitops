@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+    name: api-dev-ingress
+    namespace: api-dev
+    annotations:
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        kubernetes.io/ingress.class: "nginx"
+spec:
+    tls:
+        - hosts:
+              - api.dev.adomate.ai
+          secretName: frontend-tls
+    rules:
+        - host: api.dev.adomate.ai
+          http:
+              paths:
+                  - pathType: Prefix
+                    path: "/"
+                    backend:
+                        service:
+                            name: api-dev
+                            port:
+                                number: 3000
