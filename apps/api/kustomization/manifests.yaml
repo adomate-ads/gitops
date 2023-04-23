@@ -31,7 +31,7 @@ spec:
       - envFrom:
         - secretRef:
             name: api-secrets
-        image: adomate/api:7d4958079695444af8209e77d67f1a0eeca2ef7a
+        image: adomate/api:6615fcc0ff551f15ee381b1f349b724e269216e1
         imagePullPolicy: Always
         name: api
         ports:
