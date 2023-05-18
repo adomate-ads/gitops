@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
 - name: adomate/mail-server
-  newTag: 63084853088c8773eee0abad0a0a3e6eb76ed0d4
+  newTag: f4d4a59270ed0ed8c0d6ea54909f24aeeecc173e
 resources:
 - deployment.yaml
 - service.yaml
