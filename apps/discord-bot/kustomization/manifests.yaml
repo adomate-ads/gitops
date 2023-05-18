@@ -31,7 +31,7 @@ spec:
       - envFrom:
         - secretRef:
             name: discord-secrets
-        image: adomate/discord-bot:8e4bb2de489314946ed799e39cb648cde9216d53
+        image: adomate/discord-bot:6d4a60fdd53ce53629d3cd861d146b1c455e61e2
         imagePullPolicy: Always
         name: api
         ports:
