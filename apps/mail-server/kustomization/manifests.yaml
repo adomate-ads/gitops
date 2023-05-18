@@ -31,7 +31,7 @@ spec:
       - envFrom:
         - secretRef:
             name: mail-server-secrets
-        image: adomate/mail-server:0bd271508f6538235ec00c72ffa2e5d047a2935f
+        image: adomate/mail-server:49df1be8c5c46862e8060ce25bffaa882908f45b
         imagePullPolicy: Always
         name: mail-server
         ports:
