@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-    name: discord-bot
-    namespace: discord-bot
+    name: mail-server
+    namespace: mail-server
 spec:
     replicas: 1
     revisionHistoryLimit: 2
     selector:
         matchLabels:
-            run: discord-bot
+            run: mail-server
     template:
         metadata:
             labels:
-                run: discord-bot
+                run: mail-server
         spec:
             containers:
-                - name: discord-bot
-                  image: adomate/discord-bot:latest
+                - name: mail-server
+                  image: adomate/mail-server:latest
                   ports:
                       - containerPort: 3000
                   imagePullPolicy: Always
@@ -29,6 +29,6 @@ spec:
                           memory: 256Mi
                   envFrom:
                   - secretRef:
-                      name: discord-secrets
+                      name: mail-server-secrets
             imagePullSecrets:
             - name: dockerhub-credentials
