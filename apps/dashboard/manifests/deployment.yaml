@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: dashboard
+spec:
+    replicas: 2
+    revisionHistoryLimit: 2
+    selector:
+        matchLabels:
+            run: dashboard
+    template:
+        metadata:
+            labels:
+                run: dashboard
+        spec:
+            containers:
+                - name: dashboard
+                  image: adomate/dashboard:latest
+                  ports:
+                      - containerPort: 80
+                  imagePullPolicy: Always
+                  resources:
+                      requests:
+                          cpu: 50m
+                          memory: 256Mi
+                      limits:
+                          cpu: 100m
+                          memory: 512Mi

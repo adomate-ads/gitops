@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: adomate/dashboard
+  newTag: d10dbcaee46a9831b37648ad40710e2001a78ac5
+resources:
+- deployment.yaml
+- ingress.yaml
+- service.yaml
