@@ -1,0 +1,11 @@
+.DS_Store
+apps/.DS_Store
+apps/api/.DS_Store
+apps/api-dev/.DS_Store
+apps/dashboard/.DS_Store
+apps/discord-bot/.DS_Store
+apps/frontend/.DS_Store
+apps/mail-server/.DS_Store
+apps/mysql/.DS_Store
+apps/rabbitmq/.DS_Store
+apps/site-analyzer/.DS_Store
