@@ -27,7 +27,7 @@ spec:
         run: dashboard
     spec:
       containers:
-      - image: adomate/dashboard:324616206b9cae315f9644b6526456ce2784e946
+      - image: adomate/dashboard:49bc5698318c63c6f6f3267349ee0b9883f9542f
         imagePullPolicy: Always
         name: dashboard
         ports:
