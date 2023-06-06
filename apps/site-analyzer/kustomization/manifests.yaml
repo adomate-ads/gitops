@@ -11,11 +11,11 @@ spec:
   selector:
     run: site-analyzer
 ---
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: site-analyzer
   namespace: site-analyzer
-site-analyzerVersion: apps/v1
 spec:
   replicas: 2
   revisionHistoryLimit: 2
