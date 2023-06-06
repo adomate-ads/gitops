@@ -6,16 +6,16 @@ metadata:
   name: site-analyzer
 spec:
   ports:
-    - port: 3000
-      targetPort: 3000
+  - port: 3000
+    targetPort: 3000
   selector:
     run: site-analyzer
 ---
-apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: site-analyzer
   namespace: site-analyzer
+site-analyzerVersion: apps/v1
 spec:
   replicas: 2
   revisionHistoryLimit: 2
@@ -28,20 +28,20 @@ spec:
         run: site-analyzer
     spec:
       containers:
-        - envFrom:
-            - secretRef:
-                name: site-analyzer-secrets
-          image: adomate/site-analyzer:2fd74d5248f884664062dc87eb86843c8607c786
-          imagePullPolicy: Always
-          name: site-analyzer
-          ports:
-            - containerPort: 3000
-          resources:
-            limits:
-              cpu: 1000m
-              memory: 512Mi
-            requests:
-              cpu: 200m
-              memory: 50Mi
+      - envFrom:
+        - secretRef:
+            name: site-analyzer-secrets
+        image: adomate/site-analyzer:8917c4742c8e5dba0edeaa3d6fefd4d6355c2d1a
+        imagePullPolicy: Always
+        name: site-analyzer
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 512Mi
+          requests:
+            cpu: 200m
+            memory: 50Mi
       imagePullSecrets:
-        - name: dockerhub-credentials
+      - name: dockerhub-credentials
