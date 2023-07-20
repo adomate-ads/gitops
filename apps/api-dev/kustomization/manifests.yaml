@@ -30,7 +30,7 @@ spec:
       containers:
       - envFrom:
         - secretRef:
-            name: api-secrets
+            name: api-dev-secrets
         image: adomate/api:27caf73dbfcc0c207e68d02b9c1c431c1135be02
         imagePullPolicy: Always
         name: api-dev
