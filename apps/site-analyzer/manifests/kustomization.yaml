@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
 - name: adomate/site-analyzer
-  newTag: 0a1aaedb44445ab99b4d3ca4f5e9db8475e912f3
+  newTag: 3da2709a1d1a0e949b28fb4f568daa8cd61651b1
 resources:
 - deployment.yaml
 - service.yaml
