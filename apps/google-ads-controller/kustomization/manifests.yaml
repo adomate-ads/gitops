@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: google-ads-controller
+  name: google-ads-controller
+spec:
+  ports:
+  - port: 3000
+    targetPort: 3000
+  selector:
+    run: google-ads-controller
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: google-ads-controller
+  namespace: google-ads-controller
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      run: google-ads-controller
+  template:
+    metadata:
+      labels:
+        run: google-ads-controller
+    spec:
+      containers:
+      - envFrom:
+        - secretRef:
+            name: google-ads-controller-secrets
+        image: adomate/google-ads-controller:3da2709a1d1a0e949b28fb4f568daa8cd61651b1
+        imagePullPolicy: Always
+        name: google-ads-controller
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 512Mi
+          requests:
+            cpu: 200m
+            memory: 50Mi
+      imagePullSecrets:
+      - name: dockerhub-credentials
