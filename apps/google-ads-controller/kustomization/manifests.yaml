@@ -31,7 +31,7 @@ spec:
       - envFrom:
         - secretRef:
             name: google-ads-controller-secrets
-        image: adomate/google-ads-controller:3da2709a1d1a0e949b28fb4f568daa8cd61651b1
+        image: adomate/google-ads-controller:24f2039303b832b9b8866f75f0b54c77ea3f3bfe
         imagePullPolicy: Always
         name: google-ads-controller
         ports:
