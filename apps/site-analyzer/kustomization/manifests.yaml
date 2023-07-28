@@ -31,7 +31,7 @@ spec:
       - envFrom:
         - secretRef:
             name: site-analyzer-secrets
-        image: adomate/site-analyzer:621c52ecd7613c00de11fa538ce94eb131073def
+        image: adomate/site-analyzer:c66e11f0d196de93eb6ac2e9d7c683fc1192504f
         imagePullPolicy: Always
         name: site-analyzer
         ports:
