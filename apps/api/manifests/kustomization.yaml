@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
 - name: adomate/api
-  newTag: dddb1ba80b767111e55d695f662265d100af3f85
+  newTag: f127d393860ac62fda3325345576507cb867f157
 resources:
 - deployment.yaml
 - ingress.yaml
