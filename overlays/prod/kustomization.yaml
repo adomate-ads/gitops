@@ -10,7 +10,8 @@ images:
   newName: adomate/dashboard
   newTag: 8b43837c1976eb9ed61343ac961180e592fc5ffd
 - name: adomate/discord-bot
-  newTag: latest
+  newName: adomate/discord-bot
+  newTag: 19ce2ccc5c55350a0bf60bf7640a09988350d970
 - name: adomate/google-ads-controller
   newName: adomate/google-ads-controller
   newTag: a6046e4b5ba591497cae093464117f35c84e1100
