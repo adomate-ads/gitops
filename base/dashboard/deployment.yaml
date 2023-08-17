@@ -7,11 +7,11 @@ spec:
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      run: dashboard
+      app: dashboard
   template:
     metadata:
       labels:
-        run: dashboard
+        app: dashboard
     spec:
       containers:
         - name: dashboard
