@@ -1,20 +1,21 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - namespace.yaml
-  - ../../base
+- namespace.yaml
+- ../../base
 images:
-  - name: adomate/api
-    newTag: latest
-  - name: adomate/dashboard
-    newTag: latest
-  - name: adomate/discord-bot
-    newTag: latest
-  - name: raajpatel229/adomate-frontend
-    newTag: latest
-  - name: adomate/google-ads-controller
-    newTag: latest
-  - name: adomate/mail-server
-    newTag: latest
-  - name: adomate/site-analyzer
-    newTag: latest
+- name: adomate/api
+  newTag: latest
+- name: adomate/dashboard
+  newTag: latest
+- name: adomate/discord-bot
+  newTag: latest
+- name: adomate/google-ads-controller
+  newTag: latest
+- name: adomate/mail-server
+  newTag: latest
+- name: adomate/site-analyzer
+  newTag: latest
+- name: raajpatel229/adomate-frontend
+  newName: raajpatel229/adomate-frontend
+  newTag: 8522ef1f0017b7da57e279087905d14b62e79ccf
