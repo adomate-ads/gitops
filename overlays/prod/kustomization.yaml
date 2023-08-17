@@ -12,7 +12,8 @@ images:
 - name: adomate/discord-bot
   newTag: latest
 - name: adomate/google-ads-controller
-  newTag: latest
+  newName: adomate/google-ads-controller
+  newTag: a6046e4b5ba591497cae093464117f35c84e1100
 - name: adomate/mail-server
   newTag: latest
 - name: adomate/site-analyzer
