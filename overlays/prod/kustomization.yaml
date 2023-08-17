@@ -21,7 +21,7 @@ images:
   newTag: d70d1125b6f926f3710a5af7a961a7f46ea9a82d
 - name: adomate/site-analyzer
   newName: adomate/site-analyzer
-  newTag: e4d5378bcb1b895a70ddf17ef97fdca7d73f15fa
+  newTag: eec431f5748a6daada9d7a6817d5ca8763296665
 - name: raajpatel229/adomate-frontend
   newName: raajpatel229/adomate-frontend
   newTag: 8522ef1f0017b7da57e279087905d14b62e79ccf
