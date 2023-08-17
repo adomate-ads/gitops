@@ -1,0 +1,31 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespace.yaml
+  - ../../base
+  - auth/certificate.yaml
+  - auth/deployment.yaml
+  - auth/ingress.yaml
+  - auth/service.yaml
+  - discord/certificate.yaml
+  - discord/deployment.yaml
+  - discord/ingress.yaml
+  - discord/service.yaml
+  - mysql-backup/cronjob.yaml
+  - bot/deployment.yaml
+  - chart-parser/cronjob.yaml
+images:
+  - name: adomate/api
+    newTag: latest
+  - name: adomate/dashboard
+    newTag: latest
+  - name: adomate/discord-bot
+    newTag: latest
+  - name: raajpatel229/adomate-frontend
+    newTag: latest
+  - name: adomate/google-ads-controller
+    newTag: latest
+  - name: adomate/mail-server
+    newTag: latest
+  - name: adomate/site-analyzer
+    newTag: latest

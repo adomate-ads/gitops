@@ -1,0 +1,5 @@
+ingress-nginx:
+  controller:
+    kind: DaemonSet
+    config:
+      proxy-body-size: 128m

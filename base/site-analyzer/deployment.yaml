@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site-analyzer
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      run: site-analyzer
+  template:
+    metadata:
+      labels:
+        run: site-analyzer
+    spec:
+      containers:
+        - name: site-analyzer
+          image: adomate/site-analyzer:latest
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 200m #200 millicpu AKA 0.2vCPU
+              memory: 50Mi
+            limits:
+              cpu: 1000m #1000 millicpu AKA 1vCPU
+              memory: 512Mi
+          envFrom:
+            - secretRef:
+                name: site-analyzer-secrets
+      imagePullSecrets:
+        - name: dockerhub-credentials

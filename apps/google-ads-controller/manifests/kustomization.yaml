@@ -1,8 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-images:
-- name: adomate/google-ads-controller
-  newTag: 32a27c05ba5e1fce70278ff9b8888ad9b9eedf14
-resources:
-- deployment.yaml
-- service.yaml

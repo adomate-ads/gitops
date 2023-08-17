@@ -1,0 +1,12 @@
+rabbitmq:
+  auth:
+    username: adomate
+    existingPasswordSecret: passwords
+  primary:
+    resources:
+      requests:
+        memory: 512Mi
+        cpu: 250m
+      limits:
+        memory: 1024Mi
+        cpu: 250m

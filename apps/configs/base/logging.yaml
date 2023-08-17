@@ -1,0 +1,48 @@
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: Logging
+metadata:
+  name: logging
+  namespace: logging
+spec:
+  fluentd: {}
+  fluentbit: {}
+  controlNamespace: logging
+  watchNamespaces: ['prod','dev','ingress-nginx']
+---
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: ClusterOutput
+metadata:
+  name: s3-output
+  namespace: logging
+spec:
+  s3:
+    aws_key_id:
+      valueFrom:
+        secretKeyRef:
+          name: logging-s3
+          key: awsAccessKeyId
+    aws_sec_key:
+      valueFrom:
+        secretKeyRef:
+          name: logging-s3
+          key: awsSecretAccessKey
+    s3_bucket: adomate-backups
+    s3_endpoint: https://storage.googleapis.com
+    s3_region: us-central1
+    path: logs/%Y-%m-%d/${tag}/
+    buffer:
+      timekey: 60m
+      timekey_wait: 30s
+      timekey_use_utc: true
+---
+apiVersion: logging.banzaicloud.io/v1beta1
+kind: ClusterFlow
+metadata:
+  name: s3-flow
+  namespace: logging
+spec:
+  filters:
+    - tag_normaliser:
+        format: ${namespace_name}.${pod_name}.${container_name}
+  globalOutputRefs:
+    - s3-output
