@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     path: apps/rabbitmq
-    repoURL: https://github.com/adomate-ai/gitops
+    repoURL: https://github.com/adomate-ads/gitops
     targetRevision: HEAD
   syncPolicy:
     automated:
