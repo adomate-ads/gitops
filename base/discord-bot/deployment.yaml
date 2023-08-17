@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discord-bot
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      run: discord-bot
+  template:
+    metadata:
+      labels:
+        run: discord-bot
+    spec:
+      containers:
+        - name: discord-bot
+          image: adomate/discord-bot:latest
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: 50m #50 millicpu AKA 0.05vCPU
+              memory: 50Mi
+            limits:
+              cpu: 150m #150 millicpu AKA 0.15vCPU
+              memory: 256Mi
+          envFrom:
+            - secretRef:
+                name: discord-secrets
+      imagePullSecrets:
+        - name: dockerhub-credentials
