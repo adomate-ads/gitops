@@ -15,7 +15,8 @@ images:
   newName: adomate/google-ads-controller
   newTag: a6046e4b5ba591497cae093464117f35c84e1100
 - name: adomate/mail-server
-  newTag: latest
+  newName: adomate/mail-server
+  newTag: d70d1125b6f926f3710a5af7a961a7f46ea9a82d
 - name: adomate/site-analyzer
   newTag: latest
 - name: raajpatel229/adomate-frontend
