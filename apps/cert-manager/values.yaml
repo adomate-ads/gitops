@@ -1,4 +1,10 @@
 cert-manager:
+  global:
+    leaderElection:
+      namespace: cert-manager
+      leaseDuration: 15
+      renewDeadline: 10
+      retryPeriod: 2
   installCRDs: true
   prometheus:
     enabled: false
