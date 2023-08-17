@@ -7,7 +7,8 @@ images:
 - name: adomate/api
   newTag: latest
 - name: adomate/dashboard
-  newTag: latest
+  newName: adomate/dashboard
+  newTag: 8b43837c1976eb9ed61343ac961180e592fc5ffd
 - name: adomate/discord-bot
   newTag: latest
 - name: adomate/google-ads-controller
