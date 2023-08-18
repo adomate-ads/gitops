@@ -6,7 +6,7 @@ resources:
 images:
 - name: adomate/api
   newName: adomate/api
-  newTag: 65cee54d33aed4b9d8ac38fec9b0302df9f26749
+  newTag: 1b1d3aa2e4cf363b2fc8be5b24830be6c356ccce
 - name: adomate/dashboard
   newName: adomate/dashboard
   newTag: 8b43837c1976eb9ed61343ac961180e592fc5ffd
