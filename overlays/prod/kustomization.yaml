@@ -18,7 +18,7 @@ images:
   newTag: f98868a24ed07bd63735c0d5792c55779de2ef33
 - name: adomate/mail-server
   newName: adomate/mail-server
-  newTag: d70d1125b6f926f3710a5af7a961a7f46ea9a82d
+  newTag: f304c69e78665ba35130587925b9589bf9e90d31
 - name: adomate/site-analyzer
   newName: adomate/site-analyzer
   newTag: eec431f5748a6daada9d7a6817d5ca8763296665
