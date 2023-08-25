@@ -3,5 +3,6 @@ ingress-nginx:
     kind: DaemonSet
     config:
       proxy-body-size: 128m
+      use-forwarded-headers: "true"
     service:
       externalTrafficPolicy: Local
