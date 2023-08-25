@@ -7,3 +7,4 @@ resources:
   - base/argocd-rbac-cm.yaml
   - base/cert-manager-ClusterIssuer.yaml
   - base/logging.yaml
+  - base/rabbitmq-ingress.yaml
