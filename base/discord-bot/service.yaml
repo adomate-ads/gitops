@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: discord-bot
   labels:
-    app: discord-bot
+    run: discord-bot
 spec:
   ports:
     - port: 3000
       targetPort: 3000
   selector:
-    app: discord-bot
+    run: discord-bot
