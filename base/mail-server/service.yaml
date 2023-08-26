@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: mail-server
   labels:
-    app: mail-server
+    run: mail-server
 spec:
   ports:
     - port: 3000
       targetPort: 3000
   selector:
-    app: mail-server
+    run: mail-server
