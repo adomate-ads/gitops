@@ -9,7 +9,7 @@ images:
   newTag: c87b628abddc346480c56991e50e29d59a296d51
 - name: adomate/dashboard
   newName: adomate/dashboard
-  newTag: dbb6f5bdc2a8c5aae34d96d4c9f95b6e38e37c0d
+  newTag: f26f529a23815ac128678f99f45dcfd0207d3d6d
 - name: raajpatel229/adomate-frontend
   newName: raajpatel229/adomate-frontend
   newTag: 7c2d02e961f7428268b40edd6124ff5249bba705
