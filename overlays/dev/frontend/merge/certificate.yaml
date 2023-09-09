@@ -1,0 +1,8 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: www-adomate-ai-tls
+spec:
+  dnsNames:
+    - www.dev.adomate.ai
+    - dev.adomate.ai

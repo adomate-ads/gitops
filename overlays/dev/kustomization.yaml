@@ -1,0 +1,22 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- namespace.yaml
+- ../../base
+images:
+- name: adomate/api
+  newName: adomate/api
+  newTag: ad5d8e23dbdea7a7a4b1d2cde3d139fce32f9e3c
+- name: adomate/dashboard
+  newName: adomate/dashboard
+  newTag: dbb6f5bdc2a8c5aae34d96d4c9f95b6e38e37c0d
+- name: raajpatel229/adomate-frontend
+  newName: raajpatel229/adomate-frontend
+  newTag: 4578c7dea766c20eb9837823750982fed8954761
+patchesStrategicMerge:
+  - api/merge/certificate.yaml
+  - api/merge/ingress.yaml
+  - frontend/merge/certificate.yaml
+  - frontend/merge/ingress.yaml
+  - dashboard/merge/certificate.yaml
+  - dashboard/merge/ingress.yaml
