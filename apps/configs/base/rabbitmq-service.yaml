@@ -5,7 +5,7 @@ metadata:
   namespace: rabbitmq
 spec:
   selector:
-    app: rabbitmq
+    app.kubernetes.io/name: rabbitmq
   ports:
     - protocol: TCP
       port: 5672
