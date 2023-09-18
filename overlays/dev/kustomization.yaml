@@ -13,6 +13,18 @@ images:
 - name: raajpatel229/adomate-frontend
   newName: raajpatel229/adomate-frontend
   newTag: 7c2d02e961f7428268b40edd6124ff5249bba705
+- name: adomate/discord-bot
+  newName: adomate/discord-bot
+  newTag: 3d699bdd58807258c617e96dca033757f3930493
+- name: adomate/google-ads-controller
+  newName: adomate/google-ads-controller
+  newTag: f98868a24ed07bd63735c0d5792c55779de2ef33
+- name: adomate/mail-server
+  newName: adomate/mail-server
+  newTag: e051f1ef4140ccad06347dafc12a3b5aec8cdbe3
+- name: adomate/site-analyzer
+  newName: adomate/site-analyzer
+  newTag: eec431f5748a6daada9d7a6817d5ca8763296665
 patchesStrategicMerge:
 - api/merge/certificate.yaml
 - api/merge/ingress.yaml
