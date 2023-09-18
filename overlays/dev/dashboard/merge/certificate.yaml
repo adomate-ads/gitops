@@ -4,4 +4,4 @@ metadata:
   name: app-adomate-ai-tls
 spec:
   dnsNames:
-    - app.adomate.ai
+    - app.dev.adomate.ai
