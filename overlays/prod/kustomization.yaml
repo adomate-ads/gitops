@@ -12,7 +12,7 @@ images:
   newTag: 1cdeb56c0a583eb00d661f59ecebf42275ab1032
 - name: adomate/discord-bot
   newName: adomate/discord-bot
-  newTag: ceea7f0c78ba4774a005f6bb5211233365d7dab2
+  newTag: 96f8b26563d95e4d519cc9fe70492a461af32ef5
 - name: adomate/google-ads-controller
   newName: adomate/google-ads-controller
   newTag: f98868a24ed07bd63735c0d5792c55779de2ef33
