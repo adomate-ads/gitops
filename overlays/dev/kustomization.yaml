@@ -9,7 +9,7 @@ images:
   newTag: 578a144e76ba7c80ee9256750eb81c32d5fced68
 - name: adomate/dashboard
   newName: adomate/dashboard
-  newTag: dev-90ffe7bcff50e85f0321ff2dc59b6f7c6cb00e58
+  newTag: dev-4cc76b52d0cd2532d55029e8612383a53d87fa88
 - name: adomate/discord-bot
   newName: adomate/discord-bot
   newTag: 0951646cb45439dbc3eefbb2ad23777a03300b7a
