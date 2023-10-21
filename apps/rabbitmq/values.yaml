@@ -10,3 +10,5 @@ rabbitmq:
       limits:
         memory: 1024Mi
         cpu: 250m
+  livenessProbe:
+    enabled: false
