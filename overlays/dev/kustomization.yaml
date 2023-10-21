@@ -24,7 +24,7 @@ images:
   newTag: eec431f5748a6daada9d7a6817d5ca8763296665
 - name: raajpatel229/adomate-frontend
   newName: raajpatel229/adomate-frontend
-  newTag: dev-59a03a437a79e95002dc0e2b356fa6b9d8721343
+  newTag: dev-cca7fb68fbef2a14361fc01eb40a31ab14a8ac35
 patchesStrategicMerge:
 - api/merge/certificate.yaml
 - api/merge/ingress.yaml
