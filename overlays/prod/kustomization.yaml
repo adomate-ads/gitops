@@ -15,7 +15,7 @@ images:
   newTag: 0951646cb45439dbc3eefbb2ad23777a03300b7a
 - name: adomate/google-ads-controller
   newName: adomate/google-ads-controller
-  newTag: 3c33d7c8105c641d41be5a3ef8b6b62cbcf574ea
+  newTag: 04a5ddf6f997161cf142dc534312f074accc3dc2
 - name: adomate/mail-server
   newName: adomate/mail-server
   newTag: e051f1ef4140ccad06347dafc12a3b5aec8cdbe3
